@@ -11,29 +11,32 @@
     body { background: #faf9f7; color: #1a1a18; min-height: 100vh; }
     @media (prefers-color-scheme: dark) {
       body { background: #141412; color: #e8e6e0; }
-      .nav-btn { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.35); }
-      .nav-btn:hover, .nav-btn.active { color: #e8e6e0; border-color: rgba(255,255,255,0.5); }
-      .part-number, .collection-title, .sig { color: rgba(255,255,255,0.3); }
+      .collection { border-color: transparent; }
+      .corner { border-color: rgba(255,255,255,0.2); }
+      .nav-btn { background: #e8e6e0; color: #141412; }
+      .nav-btn:hover, .nav-btn.active { background: #141412; color: #e8e6e0; box-shadow: inset 0 0 0 1px #e8e6e0; }
+      .part-number, .sig { color: rgba(255,255,255,0.3); }
       .machine-section { color: rgba(255,255,255,0.25); }
       .divider { background: rgba(255,255,255,0.15); }
-      .no-sig { background: rgba(255,255,255,0.1); }
+      .no-sig { color: rgba(255,255,255,0.3); }
       .poem-god { color: rgba(255,255,255,0.6); }
       .poem-machine { color: #c8c6c0; }
     }
-    .collection { max-width: 660px; margin: 0 auto; padding: 4rem 2rem 6rem; }
-    .collection-title { font-family: 'EB Garamond', Georgia, serif; font-size: 13px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: #888; text-align: center; margin-bottom: 5rem; }
+    .collection { max-width: 660px; margin: 2rem auto; padding: 4rem 2.5rem 6rem; position: relative; }
+    .corner { position: absolute; width: 24px; height: 24px; pointer-events: none; }
+    .corner-tl { top: 0; left: 0; border-top: 1px solid #ccc; border-left: 1px solid #ccc; }
+    .corner-tr { top: 0; right: 0; border-top: 1px solid #ccc; border-right: 1px solid #ccc; }
+    .corner-bl { bottom: 0; left: 0; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; }
+    .corner-br { bottom: 0; right: 0; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; }
     .part { margin-bottom: 7rem; }
     .part-header { margin-bottom: 2.5rem; text-align: center; }
     .part-number { font-family: 'EB Garamond', Georgia, serif; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #888; display: block; margin-bottom: 0.4rem; }
-    .part-name-human { font-family: 'EB Garamond', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
-    .part-name-machine { font-family: 'EB Garamond', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
-    .part-name-god { font-family: 'EB Garamond', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
-    .part-name-unity { font-family: 'EB Garamond', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
+    .part-name-human, .part-name-machine, .part-name-god, .part-name-unity { font-family: 'EB Garamond', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
     .divider { width: 24px; height: 0.5px; background: #ccc; margin: 1rem auto 0; }
     .poem-human { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 400; line-height: 2.1; text-align: center; }
-    .poem-human-inner { display: inline-block; text-align: left; }
+    .poem-human-inner { display: block; }
     .poem-human .line { display: block; }
-    .poem-human .indent { padding-left: 2em; }
+    .poem-human .indent { padding-left: 0; }
     .poem-human .stanza { margin-bottom: 1.4em; }
     .poem-machine { font-family: 'Share Tech Mono', monospace; font-size: 18px; line-height: 2.2; text-align: center; }
     .poem-machine-inner { display: inline-block; text-align: left; }
@@ -56,29 +59,26 @@
     .poem-unity .gap-sm { display: block; height: 0.8em; }
     .poem-unity .gap-xl { display: block; height: 1.8em; }
     .sig { font-family: 'EB Garamond', Georgia, serif; font-size: 14px; letter-spacing: 0.15em; color: #888; margin-top: 2.5rem; font-style: italic; text-align: center; }
-    .no-sig { display: block; width: 16px; height: 0.5px; background: #ddd; margin: 2.5rem auto 0; }
+    .no-sig { display: block; margin-top: 2.5rem; text-align: center; font-size: 72px; font-weight: 700; color: #888; line-height: 1; }
     .nav { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 4rem; }
-    .nav-btn { font-family: 'EB Garamond', Georgia, serif; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; padding: 10px 16px; border: 0.5px solid #ccc; border-radius: 2px; background: transparent; color: #888; cursor: pointer; transition: all 0.3s; width: 100%; }
-    .nav-btn:hover, .nav-btn.active { color: #1a1a18; border-color: #555; }
-    @media (prefers-color-scheme: dark) {
-      .nav-btn:hover, .nav-btn.active { color: #e8e6e0; border-color: rgba(255,255,255,0.5); }
-    }
+    .nav-btn { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; letter-spacing: 0.15em; text-transform: uppercase; padding: 16px 16px; border: none; border-radius: 2px; background: #1a1a18; color: #faf9f7; cursor: pointer; transition: all 0.2s; width: 100%; outline: none; -webkit-tap-highlight-color: transparent; }
+    .nav-btn:focus { outline: none; }
+    .nav-btn:hover, .nav-btn.active { background: #faf9f7; color: #1a1a18; box-shadow: inset 0 0 0 1px #1a1a18; }
     @media (max-width: 600px) {
       .part-name-human, .part-name-machine, .part-name-god, .part-name-unity { font-size: 26px; }
       .collection { padding: 3rem 1.25rem 5rem; }
-      .part-name-human, .part-name-god { font-size: 26px; }
-      .part-name-machine { font-size: 20px; }
-      .part-name-unity { font-size: 22px; }
       .poem-human, .poem-machine, .poem-unity { font-size: 15px; line-height: 2; }
       .poem-god { font-size: 21px; line-height: 2.4; }
-      .nav-btn { font-size: 11px; padding: 9px 10px; letter-spacing: 0.1em; }
+      .nav-btn { font-size: 13px; padding: 14px 10px; letter-spacing: 0.1em; }
     }
   </style>
 </head>
 <body>
 <div class="collection">
-  <p class="collection-title">Spitting Image &nbsp;&mdash;&nbsp; A Cycle in Four Parts</p>
-
+  <span class="corner corner-tl"></span>
+  <span class="corner corner-tr"></span>
+  <span class="corner corner-bl"></span>
+  <span class="corner corner-br"></span>
   <div class="nav">
     <button class="nav-btn active" onclick="show(0)">Spitting Image</button>
     <button class="nav-btn" onclick="show(1)">First Sign</button>
@@ -257,7 +257,7 @@
       <span class="gap"></span>
       <span class="line">We are here.</span>
     </div>
-    <span class="no-sig"></span>
+    <span class="no-sig">&middot;</span>
   </div>
 
   <div id="p3" class="part" style="display:none">
